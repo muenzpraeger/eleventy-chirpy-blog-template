@@ -23,15 +23,25 @@ function toggleDarkLightMode (isInit) {
         } else {
             localStorage.theme = "dark";
         }
-    } else if (!isInit) {
-        if (localStorage.theme === "light") {
-            document.querySelector("html").classList.add("dark");
-            document.querySelector("html").classList.remove("light");
-            localStorage.theme = "dark";
-        } else if (localStorage.theme === "dark") {
-            document.querySelector("html").classList.add("light");
-            document.querySelector("html").classList.remove("dark");
-            localStorage.theme = "light";
+    } else {
+        if (!isInit) {
+            if (localStorage.theme === "light") {
+                document.querySelector("html").classList.add("dark");
+                document.querySelector("html").classList.remove("light");
+                localStorage.theme = "dark";
+            } else if (localStorage.theme === "dark") {
+                document.querySelector("html").classList.add("light");
+                document.querySelector("html").classList.remove("dark");
+                localStorage.theme = "light";
+            }
+        } else {
+            if (localStorage.theme === "light") {
+                document.querySelector("html").classList.remove("dark");
+                document.querySelector("html").classList.add("light");
+            } else if (localStorage.theme === "dark") {
+                document.querySelector("html").classList.remove("light");
+                document.querySelector("html").classList.add("dark");
+            }
         }
     }
 };
