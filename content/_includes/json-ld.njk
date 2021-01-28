@@ -1,0 +1,15 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ title }}",
+        "image": ["{% if image %}{{ image | absoluteUrl }}{% else %}{{ siteconfig.openGraphDefaultImage | absoluteUrl }}{% endif %}"],
+        "author": {
+            "@type": "Person",
+            "name": "{{ siteconfig.author }}"
+        },
+        "mainEntityOfPage": "{{ page.url | absoluteUrl }}",
+        "datePublished": "{{ page.date | isodate }}",
+        "description": "{{ content | striptags | truncate(140) }}"
+    }
+</script>

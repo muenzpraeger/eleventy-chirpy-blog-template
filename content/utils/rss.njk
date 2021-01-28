@@ -1,0 +1,27 @@
+---
+eleventyExcludeFromCollections: true
+permalink: /blog.rss
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ siteconfig.title }}</title>
+  <subtitle>{{ siteconfig.description }}</subtitle>
+  <link href="{{ '/blog.rss' | absoluteUrl }}" rel="self"/>
+  <link href="{{ siteconfig.url }}"/>
+  <updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
+  <id>{{ siteconfig.url }}</id>
+  <author>
+    <name>{{ siteconfig.author }}</name>
+  </author>
+  {%- for post in collections.posts | reverse %}
+  {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}"/>
+    <updated>{{ post.date | rssDate }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | truncate(400) }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

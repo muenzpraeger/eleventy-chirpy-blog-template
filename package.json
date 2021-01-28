@@ -1,0 +1,76 @@
+{
+    "name": "eleventy-chirpy-blog-template",
+    "version": "1.0.0",
+    "private": true,
+    "license": "MIT",
+    "scripts": {
+        "build": "npm run build:css && npm run build:js && npm run build:eleventy ",
+        "build:css": "postcss assets/css/site.css -o assets/css/site-build.css && postcss assets/css/prism.css -o assets/css/prism-build.css",
+        "build:eleventy": "eleventy",
+        "build:js": "rollup -c scripts/rollup.config.js",
+        "dev": "concurrently \"npm:dev:*\"",
+        "dev:css:prism": "postcss assets/css/prism.css -o assets/css/prism-build.css --watch",
+        "dev:css:site": "postcss assets/css/site.css -o assets/css/site-build.css --watch",
+        "dev:eleventy": "eleventy --serve",
+        "dev:js": "rollup -c scripts/rollup.config.js -w",
+        "lint": "npm run lint:markdown && npm run lint:js",
+        "lint:markdown": "npx markdownlint-cli2 \"./content/**/*.md\"",
+        "lint:js": "eslint '**/*.js'",
+        "prettier": "prettier --write \"**/*.{css,html,js,json,md,yaml,yml}\"",
+        "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,yaml,yml}\""
+    },
+    "dependencies": {
+        "@11ty/eleventy": "^0.11.1",
+        "@11ty/eleventy-plugin-rss": "^1.1.0",
+        "@rollup/plugin-replace": "^2.3.4",
+        "autoprefixer": "^10.2.3",
+        "crypto-js": "^4.0.0",
+        "cssnano": "^4.1.10",
+        "date-fns": "^2.16.1",
+        "dotenv": "^8.2.0",
+        "eleventy-plugin-toc": "^1.1.0",
+        "html-minifier": "^4.0.0",
+        "jsdom": "^16.4.0",
+        "markdown-it": "^12.0.4",
+        "markdown-it-anchor": "^7.0.0",
+        "postcss": "^8.2.4",
+        "postcss-cli": "^8.3.1",
+        "rollup": "^2.38.0",
+        "rollup-plugin-postcss": "^4.0.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "sharp": "^0.27.1",
+        "shelljs": "^0.8.4",
+        "tailwindcss": "^2.0.2"
+    },
+    "devDependencies": {
+        "concurrently": "^5.3.0",
+        "eslint": "^7.18.0",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-plugin-inclusive-language": "^1.2.1",
+        "husky": "^4.3.8",
+        "lint-staged": "^10.5.3",
+        "markdownlint": "^0.22.0",
+        "markdownlint-cli2": "^0.0.13",
+        "prettier": "^2.2.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "**/*.{css,html,js,json,md,yaml,yml}": [
+            "prettier --write"
+        ],
+        "**/*.js": [
+            "eslint"
+        ],
+        "content/**/*.md": [
+            "npx markdownlint-cli2"
+        ]
+    },
+    "volta": {
+        "node": "14.15.4",
+        "yarn": "1.22.10"
+    }
+}

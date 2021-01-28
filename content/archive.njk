@@ -1,0 +1,28 @@
+---
+eleventyExcludeFromCollections: true
+layout: base.njk
+title: Archive
+---
+
+<div class="postlist pb-8 mt-8 font-light dark:font-extralight pt-4">
+    {% for post in collections.posts | reverse %}
+        {% set currentYear = post | year %}
+        {% set previousYear = collections.posts | getPreviousCollectionItem(post) | year %}
+        {% if loop.first %}
+        <span class="text-2xl">{{ currentYear }}</span>
+        <ul class="mt-3">
+        {% endif %}
+            <li class="bg-gradient-to-r from-white via-gray-100 to-white dark:via-dark-middle dark:from-dark-outer dark:to-dark-outer mb-4 px-6 py-2 truncate">
+                <span class="text-lg tabular-nums">{{ post.date | day }}</span>
+                <span class="text-sm font-extralight">{{ post.date | month }}</span>
+                <a href="{{ post.url }}" class="ml-6">{{ post.data.title }}</a>
+            </li>
+        {% if loop.last %}
+        </ul>
+        {% elif currentYear != previousYear %}
+        </ul>
+        <span class="text-2xl">{{ previousYear }}</span>
+        <ul class="mt-3">
+        {% endif %}
+    {% endfor %}
+</div>

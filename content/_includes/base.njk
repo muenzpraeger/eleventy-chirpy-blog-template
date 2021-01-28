@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" class="dark">
+    <head>
+        {% include "head.njk" %}
+        {% include "json-ld.njk" %}
+    </head>
+    <body class="dark:text-gray-300 dark:bg-dark-body bg-white text-gray-900 tracking-wider font-light overflow-x-hidden sm:overflow-auto">
+        <div class="grid grid-flow-col grid-cols-small sm:grid-cols-regular h-screen">
+            <div id="sidebar" class="sidebar transition-transform transform -translate-x-56 sm:translate-x-0  sm:transition-none">
+                {% include "sidebar.njk" %}
+            </div>
+            <div id="right-area" class="overflow-x-hidden sm:overflow-auto transition-transform transform sm:translate-x-0 sm:transition-none">
+                <div id="top-bar" class="h-12 z-10 bg-white dark:bg-dark-heading transition-transform duration-200 ease-in sm:sticky top-0 border-gray-600 border-b-1 dark:border-transparent border-opacity-30 shadow-lg">
+                    <div class="grid grid-flow-col grid-cols-auto md:grid-cols-topbar max-w-content">
+                        <div id="mobile-top-bar" class="flex leading-12 sm:hidden col-span-2">
+                            <svg viewBox="0 0 100 80" class="block align-middle h-12 leading-12 ml-3 py-3 pt-4" onclick="slideLeftSidebar()">
+                                <rect width="60" height="7"></rect>
+                                <rect y="30" width="60" height="7"></rect>
+                                <rect y="60" width="60" height="7"></rect>
+                            </svg>
+                            <p class="flex-grow inline align-middle leading-12 text-xl text-center font-medium">{{ siteconfig.title }}</p>
+                            {% if siteconfig.algoliaSearch and siteconfig.algoliaSearch.enabled %}
+                            <svg viewBox="0 0 32 32" class="block align-middle h-12 leading-12 mr-3 py-3 pt-3" onclick="toggleSearch()">
+                                <path d="M27.414,24.586l-5.077-5.077C23.386,17.928,24,16.035,24,14c0-5.514-4.486-10-10-10S4,8.486,4,14  s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0  C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z" id="XMLID_223_" />
+                            </svg>
+                            {% else %}
+                            <div class="w-12"></div>
+                            {% endif %}
+                        </div>
+                        <div id="topbar-desktop-title" class="hidden sm:inline-block leading-12 align-middle ml-8 lg:ml-32 text-base text-gray-500 dark:text-gray-400 pr-8 truncate">
+                            {% if date %}<a href="/" class="text-indigo-900 dark:text-indigo-300 font-normal dark:font-light">Posts</a> › {% endif %}{{ title }}</div>
+                        <div id="search-desktop-title" class="hidden sm:hidden leading-12 align-middle ml-8 lg:ml-32 text-base text-gray-500 dark:text-gray-400">
+                        </div>
+                        {% if siteconfig.algoliaSearch and siteconfig.algoliaSearch.enabled %}
+                        <div id="search-box-bar" class="hidden sm:inline-block mr-6 ml-6 sm:mx-0 pt-3 col-span-2 sm:col-auto">
+                            <input id="search-box" type="search" autocomplete="off" spellcheck="false" autocorrect="off" onkeyup="searchContent(event)" class="bg-white dark:bg-dark-nav text-gray-800 dark:text-gray-400 font-light shadow rounded-full border-0 ring-1 ring-gray-300 focus:ring-indigo-400 dark:ring-gray-700 dark:focus:ring-gray-600 pl-2 h-6 w-2/3 sm:float-right sm:mr-6 md:float-none md:w-56 focus:outline-none" placeholder="Search..." aria-label="Search box">
+                            <span id="mobile-search-cancel" class="hidden sm:hidden ml-4" onclick="toggleSearch()">Cancel</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div></div>
+                </div>
+                <div class="dark:bg-dark-body grid grid-flow-col grid-cols-auto xl:grid-cols-topbar max-w-content mb-12">
+                    <main class="min-w-0">
+                        {{ content | safe }}
+                    </main>
+                    <div id="search-container" class="hidden truncate">
+                        <div class="postlist pb-8 mt-8 font-light dark:font-extralight pt-4 min-w-0">
+                            <div id="search-mobile-title" class="hidden leading-12 align-middle text-gray-500 dark:text-gray-400">
+                            </div>
+                            <ul id="search-results" class="mt-3">
+                            </ul>
+                            <span id="search-no-results" class="mt-3 hidden">
+                                No data found for the given query.
+                            </span>
+                            <img src="/assets/images/algolia.png" alt="Search powered by Algolia" />
+                        </div>
+                    </div>
+                    <aside class="hidden xl:block w-72 float-right">
+                        {% include "recents.njk" %}
+                        {% include "toc.njk" %}
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <div id="scroll" class="scroll" onclick="scrollToTop()">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1000 1000"
+	        	class="h-6 w-6"
+            >
+                <g>
+                    <path
+                        d="M990,699.9c0,8.1,0,16.3-8.1,24.4c-16.3,16.3-40.7,16.3-56.9,0L502,350.2L79.1,732.4c-16.3,16.3-40.7,16.3-56.9,0c-16.3-16.3-16.3-40.7,0-56.9l447.3-406.6c24.4-16.3,40.7-16.3,56.9-8.1l447.3,406.6C981.9,675.5,990,691.8,990,699.9z"
+                    ></path>
+                </g>
+            </svg>
+        </div>
+    </body>
+</html>

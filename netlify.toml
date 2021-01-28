@@ -1,0 +1,18 @@
+[build]
+  publish = "_site/"
+  command = "yarn build"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+	cache-control = '''
+	max-age=3600,
+	public'''
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+	cache-control = '''
+	max-age=31536000,
+	public,
+	immutable'''

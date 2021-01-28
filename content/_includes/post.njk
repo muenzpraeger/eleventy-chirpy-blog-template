@@ -1,0 +1,87 @@
+---
+layout: base.njk
+---
+
+<div class="content post border-solid border-b-1 border-gray-700 pb-6">
+  	<h1>{{ title }}</h2>
+  	<div class="mb-12 flex text-sm font-light dark:font-extralight">
+		<div class="flex">
+        	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600.112 600.111" class="h-5 w-4 mr-2">
+	    		<path d="M537.423,52.563h-59.836V21.92c0-11.83-9.591-21.42-21.42-21.42c-11.83,0-21.42,9.59-21.42,21.42v30.642H165.364V21.92
+	    						c0-11.83-9.59-21.42-21.42-21.42c-11.83,0-21.42,9.59-21.42,21.42v30.642H62.687c-32.058,0-58.14,26.082-58.14,58.14v430.77
+	    						c0,32.059,26.082,58.139,58.14,58.139h474.736c32.059,0,58.141-26.08,58.141-58.139v-430.77
+				    			C595.564,78.645,569.482,52.563,537.423,52.563z M47.387,110.703c0-8.451,6.85-15.3,15.3-15.3h59.837v24.443
+				    			c0,11.83,9.59,21.42,21.42,21.42s21.42-9.59,21.42-21.42V95.403h269.383v24.443c0,11.83,9.59,21.42,21.42,21.42
+	    		    			c11.829,0,21.42-9.59,21.42-21.42V95.403h59.836c8.45,0,15.3,6.85,15.3,15.3v53.856H47.387V110.703z M552.723,541.473
+	    					c0,8.449-6.85,15.301-15.3,15.301H62.687c-8.45,0-15.3-6.852-15.3-15.301V207.399h505.336V541.473z" />
+	    		<path d="M537.423,600.111H62.687c-32.334,0-58.64-26.306-58.64-58.639v-430.77c0-32.334,26.306-58.64,58.64-58.64h59.336V21.92
+	    					c0-12.087,9.833-21.92,21.92-21.92c12.086,0,21.92,9.833,21.92,21.92v30.142h268.384V21.92c0-12.087,9.833-21.92,21.92-21.92
+	    					s21.92,9.833,21.92,21.92v30.143h59.336c32.335,0,58.641,26.306,58.641,58.64v430.77
+	    					C596.064,573.806,569.758,600.111,537.423,600.111z M62.687,53.062c-31.783,0-57.64,25.857-57.64,57.64v430.77
+		    				c0,31.782,25.857,57.639,57.64,57.639h474.736c31.783,0,57.641-25.856,57.641-57.639v-430.77c0-31.783-25.857-57.64-57.641-57.64
+		    				h-60.336V21.92c0-11.536-9.385-20.92-20.92-20.92s-20.92,9.385-20.92,20.92v31.142H164.864V21.92
+	        				c0-11.536-9.385-20.92-20.92-20.92c-11.536,0-20.92,9.385-20.92,20.92v31.142H62.687z M537.423,557.273H62.687
+	    					c-8.712,0-15.8-7.088-15.8-15.801V206.899h506.336v334.574C553.223,550.186,546.135,557.273,537.423,557.273z M47.887,207.899
+	    					v333.574c0,8.161,6.639,14.801,14.8,14.801h474.736c8.16,0,14.8-6.64,14.8-14.801V207.899H47.887z M553.223,165.059H46.887
+	    					v-54.356c0-8.712,7.088-15.8,15.8-15.8h60.337v24.943c0,11.535,9.385,20.92,20.92,20.92s20.92-9.385,20.92-20.92V94.903h270.383
+	    					v24.943c0,11.535,9.385,20.92,20.92,20.92s20.92-9.385,20.92-20.92V94.903h60.336c8.712,0,15.8,7.088,15.8,15.8V165.059z
+	    				 	M47.887,164.059h504.336v-53.356c0-8.161-6.64-14.8-14.8-14.8h-59.336v23.943c0,12.087-9.833,21.92-21.92,21.92
+	    					s-21.92-9.833-21.92-21.92V95.903H165.864v23.943c0,12.087-9.833,21.92-21.92,21.92s-21.92-9.833-21.92-21.92V95.903H62.687
+	    					c-8.161,0-14.8,6.639-14.8,14.8V164.059z" />
+        	</svg>
+        	{{ date | readableDate }}
+		</div>
+		<div class="flex readingtime" data-words="{{ content | striptags | wordcount | formatWords }} words">
+        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472.615 472.615" class="h-5 w-8 mr-2 ml-12">
+  	    		<path d="M472.615,205.774h-25.344c-12.797-37.99-48.686-65.462-90.935-65.462c-43.224,0-79.837,28.73-91.823,68.087
+        					c-7.582-5.011-17.305-8.115-28.211-8.115c-10.903,0-20.624,3.103-28.207,8.114c-11.989-39.357-48.608-68.085-91.831-68.085
+			    			c-42.249,0-78.135,27.472-90.93,65.462H0v19.692h20.925c-0.403,3.565-0.656,7.175-0.656,10.846
+        					c0,52.933,43.063,95.99,95.995,95.99s96-43.058,96-95.99c0-0.552-0.073-1.085-0.083-1.635h0.069
+	    	  				c0-6.952,9.88-14.702,24.053-14.702c14.178,0,24.053,7.75,24.053,14.702h0.073c-0.01,0.549-0.083,1.083-0.083,1.635
+  	    					c0,52.933,43.058,95.99,95.99,95.99s96-43.058,96-95.99c0-3.671-0.253-7.281-0.656-10.846h20.935V205.774z M116.264,312.611
+        					c-42.072,0-76.303-34.231-76.303-76.298c0-42.077,34.231-76.308,76.303-76.308c42.077,0,76.308,34.231,76.308,76.308
+        					C192.572,278.38,158.341,312.611,116.264,312.611z M356.337,312.611c-42.067,0-76.298-34.231-76.298-76.298
+        					c0-42.077,34.231-76.308,76.298-76.308c42.077,0,76.308,34.231,76.308,76.308C432.644,278.38,398.413,312.611,356.337,312.611z" />
+        	</svg>
+        	{{ content | striptags | wordcount | readingTime }}
+			<span></span>
+		</div>
+	</div>
+	{% if image %}
+	<img src="{{ image }}" alt="{{ imageAlt }}" />
+	{% endif %}
+  	{{ content | safe }}
+  	{% include "social.njk" %}
+	<div class="block w-full h-1 border-solid border-b-1 border-gray-700"></div>
+	<div class="additions flex flex-col sm:flex-row gap-3 mt-6 px-4 w-full">	
+		{% set previousPost = collections.posts | getPreviousCollectionItem(page) %}	
+		{% set nextPost = collections.posts | getNextCollectionItem(page) %}	
+	  	<a href="{{ previousPost.url }}" class="flex-1">	
+			<div class="h-24 border-1 border-gray-700 leading-pagination text-center{% if previousPost.url %} hover:bg-indigo-900 dark:hover:bg-indigo-900 hover:text-gray-200 dark:hover:text-gray-200 cursor-pointer{% else %} cursor-not-allowed{% endif %}">	
+				<span class="text-xs block mt-1 mb-3">Older</span>	
+				<span class="text-xl">{% if not previousPost.url %} - {% else %}{{ previousPost.data.title | truncate(40) }}{% endif %}</span>	
+			</div>	
+		</a>	
+	  	<a href="{{ nextPost.url }}" class="flex-1">	
+		  	<div class="h-24 border-1 border-gray-700 leading-pagination text-center{% if nextPost.url %} hover:bg-indigo-900 dark:hover:bg-indigo-900 hover:text-gray-200 dark:hover:text-gray-200 cursor-pointer{% else %} cursor-not-allowed{% endif %} overflow-auto">	
+				<span class="text-xs block mt-1 mb-3">Newer</span>	
+				<span class="text-xl">{% if not nextPost.url %} - {% else %}{{ nextPost.data.title | truncate(40) }}{% endif %}</span>	
+			</div>	
+		</a>	
+	</div>
+	{% set relatedPosts = related %}	
+	{% if relatedPosts %}
+	<div class="block w-full h-1 border-solid border-b-1 border-gray-700"></div>
+	<span class="content text-gray-800 dark:text-gray-400">Related</span>	
+	<div class="content additions flex mt-6 border-solid border-b-1 border-gray-700 mr-8 lg:mr-24">	
+	  	{% for post in relatedPosts %}	
+	  	<a href="{{ post.url }}"  class="flex-1">	
+		  	<div class="h-24 m-1 border-1 border-gray-700 leading-pagination text-center hover:bg-indigo-900 hover:text-gray-200 rounded">	
+			  	<span class="text-xs block mt-1 mb-3">Recommended</span>	
+				<span class="text-xl">{{ post.title }}</span>	
+			</div>	
+		</a>	
+	  	{% endfor %}
+	</div>
+	{% endif %}
+</div>

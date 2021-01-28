@@ -1,0 +1,471 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img {
+    @apply rounded-lg shadow-lg block mx-auto h-auto;
+}
+
+/* Left sidebar */
+
+.sidebar .navitem {
+    @apply text-gray-400 hover:text-white px-1;
+}
+
+.sidebar .navitem.active {
+    @apply text-white;
+}
+
+div.menu li {
+    @apply leading-12;
+}
+
+div.menu ul > li:last-child > a {
+    margin-right: -3px;
+    max-width: calc(100% - 3px);
+}
+
+div.menu ul > li:last-child::after {
+    visibility: hidden;
+    content: "";
+    position: relative;
+    right: -8.8rem;
+    width: 3px;
+    background-color: white;
+    pointer-events: none;
+    border-right: solid 2px white;
+    transition: top 0.5s ease;
+}
+
+@media screen and (max-width: 1280px) {
+    div.menu ul > li:last-child::after {
+        right: -6.8rem;
+    }
+}
+
+div.menu ul > li.active:nth-child(1) ~ li:last-child::after,
+div.menu ul > li.navitem:nth-child(1):hover ~ li:last-child::after {
+    top: -12rem;
+    visibility: visible;
+}
+div.menu ul > li.active:nth-child(2) ~ li:last-child::after,
+div.menu ul > li.navitem:nth-child(2):hover ~ li:last-child::after {
+    top: -9rem;
+    visibility: visible;
+}
+div.menu ul > li.active:nth-child(3) ~ li:last-child::after,
+div.menu ul > li.navitem:nth-child(3):hover ~ li:last-child::after {
+    top: -6rem;
+    visibility: visible;
+}
+div.menu ul > li.active:nth-child(4):last-child::after,
+div.menu ul > li.navitem:nth-child(4):last-child:hover::after {
+    top: -3rem;
+    visibility: visible;
+}
+
+div.menu > * {
+    transition: transform 0.4s ease;
+}
+
+/* SVGs */
+
+html[class="dark"] svg {
+    fill: #9ca3af;
+    stroke: #9ca3af;
+}
+
+html[class="dark"] .social svg:hover {
+    fill: white;
+    stroke: white;
+}
+
+html:not(.dark) svg.twitter {
+    fill: #1da1f2;
+    stroke: #1da1f2;
+}
+
+html:not(.dark) svg.twitter:hover {
+    fill: #1b90d8;
+    stroke: #1b90d8;
+}
+
+html:not(.dark) svg.facebook {
+    fill: #4267b2;
+    stroke: #4267b2;
+}
+
+html:not(.dark) svg.facebook:hover {
+    fill: #375593;
+    stroke: #375593;
+}
+
+html:not(.dark) svg.linkedin {
+    fill: #0072b1;
+    stroke: #0072b1;
+}
+
+html:not(.dark) svg.linkedin:hover {
+    fill: #006398;
+    stroke: #006398;
+}
+
+html[class="dark"] svg.darktoggle {
+    @apply hidden;
+}
+
+html:not(.dark) svg.lighttoggle {
+    @apply hidden;
+}
+
+.sidebar svg {
+    fill: #9ca3af;
+    stroke: #9ca3af;
+    @apply transition duration-200 ease-in;
+}
+
+.sidebar svg:hover {
+    fill: #fff;
+    stroke: #fff;
+}
+
+/* Content area */
+
+.content,
+.postlist {
+    @apply mt-8 mx-8 lg:mr-32 lg:ml-32 leading-relaxed tracking-wider;
+}
+
+.content a {
+    @apply text-indigo-900 dark:text-indigo-300 underline;
+}
+
+.content p {
+    @apply pb-4 pt-2 font-light dark:font-extralight;
+}
+
+.content blockquote {
+    @apply border-l-2 border-gray-300 dark:border-gray-600 my-4;
+}
+
+.content blockquote > p {
+    @apply ml-4 py-2;
+}
+
+.content h1 {
+    @apply text-2xl dark:font-light py-6 mt-4;
+}
+
+.content h2 {
+    @apply text-xl mt-6;
+}
+
+.content h3 {
+    @apply text-lg mt-6;
+}
+
+.content ol {
+    @apply list-decimal pl-10 leading-8;
+}
+
+.content ul {
+    @apply list-disc pl-10 leading-8;
+}
+
+.content table {
+    @apply table-auto w-full;
+}
+
+.content table thead tr {
+    @apply leading-12;
+}
+
+.content table tbody tr:nth-child(even) {
+    @apply dark:bg-dark-heading;
+}
+
+.content table tbody tr:nth-child(odd) {
+    @apply bg-gray-100 dark:bg-sidebar-dark;
+}
+
+.content img {
+    max-width: 100%;
+}
+
+.social svg {
+    @apply h-5 ml-2 mr-3;
+}
+
+.social a {
+    position: relative;
+}
+
+.social a::before {
+    content: attr(aria-label);
+    position: absolute;
+    transform: translateY(-50%);
+    top: -42px;
+    left: -45px;
+    width: 150px;
+    padding: 10px;
+    background: #000;
+    border-radius: 0.3rem;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    font-size: 12px;
+}
+
+.social a.link:active::before {
+    content: "Copied";
+    top: -33px;
+}
+
+.social a:hover::before {
+    opacity: 1;
+    display: block;
+}
+
+.social a:hover > span::after {
+    content: " ";
+    position: absolute;
+    top: -14px;
+    left: 7px;
+    margin-bottom: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+/* Utils */
+
+.readingtime {
+    @apply cursor-default;
+    position: relative;
+}
+
+.readingtime::before {
+    content: attr(data-words);
+    position: absolute;
+    transform: translateY(-50%);
+    bottom: -49px;
+    right: 1px;
+    width: 100px;
+    padding: 4px;
+    background: #000;
+    border-radius: 0.3rem;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    font-size: 12px;
+}
+
+div.readingtime:hover::before {
+    opacity: 1;
+    display: block;
+}
+
+.readingtime:hover > span::after {
+    content: " ";
+    position: absolute;
+    top: 11px;
+    right: 41px;
+    margin-bottom: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.content.post > p > a:hover,
+.content.page a:hover,
+a.postlistheading:hover,
+.postlist a:hover,
+#recents a:hover,
+#top-bar a:hover {
+    @apply text-red-500 underline;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+
+/* Right sidebar */
+
+#toc {
+    transition: top 0.2s ease-in-out;
+    animation: fadeup-content 0.8s;
+}
+
+nav.toc {
+    margin-left: 8px;
+}
+
+nav.toc ol {
+    @apply list-none;
+    transition: top 0.4s ease;
+}
+
+nav.toc li {
+    @apply leading-8;
+}
+
+nav.toc a {
+    @apply no-underline block;
+    padding-left: 18px;
+    margin-left: -9px;
+}
+
+nav.toc a:active,
+nav.toc a:hover {
+    @apply text-indigo-900 dark:text-indigo-300;
+    border-left: 1px solid;
+    padding-left: 17px;
+}
+
+nav.toc a.active {
+    @apply text-indigo-900 dark:text-indigo-300 font-bold;
+    border-left: 2px solid;
+    padding-left: 16px;
+}
+
+nav.toc ol ol a,
+nav.toc ol ol a:hover,
+nav.toc ol ol a:active,
+nav.toc ol ol a.active {
+    padding-left: 26px;
+}
+
+nav.toc ol ol a:active,
+nav.toc ol ol a:hover {
+    padding-left: 25px;
+}
+
+nav.toc ol ol a.active {
+    padding-left: 24px;
+}
+
+/* Collection pagination */
+
+ul.pagination div {
+    @apply h-8 w-8 border-1 dark:text-gray-400 bg-white dark:bg-gray-700 hover:bg-indigo-800 dark:hover:bg-gray-600 border-gray-600 hover:text-white rounded-full text-center;
+}
+
+html:not(.dark) ul.pagination div.active {
+    @apply text-white bg-indigo-800;
+    box-shadow: 0 0 8px 0 rgba(55, 48, 163);
+}
+
+html[class="dark"] ul.pagination div.active {
+    @apply bg-indigo-900;
+}
+
+::placeholder {
+    @apply text-gray-800;
+}
+
+:-ms-input-placeholder {
+    @apply text-gray-800;
+}
+
+#top-bar.hide {
+    @apply transform -translate-y-12;
+}
+
+.additions a {
+    @apply no-underline;
+}
+
+.additions div {
+    @apply text-gray-700 dark:text-gray-400 bg-white dark:bg-dark-body border-gray-600 no-underline;
+}
+
+.additions div:hover {
+    @apply no-underline;
+}
+
+.scroll {
+    @apply bg-white dark:bg-gray-700 w-12 h-12 border-indigo-900 border-solid border-1;
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    bottom: 80px;
+    right: 60px;
+    opacity: 0.8;
+    border-radius: 50%;
+    z-index: 9;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    animation: fadeup-scrolltop 0.7s;
+}
+
+@media all and (max-width: 400px) {
+    .scroll {
+        bottom: 40px;
+        right: 40px;
+        animation: fadeup-scrolltop-mobile 0.7s;
+    }
+}
+
+.scroll svg {
+    @apply stroke-current fill-current;
+}
+
+@keyframes fadeup-content {
+    0% {
+        opacity: 0;
+        position: relative;
+        top: 2rem;
+    }
+    100% {
+        opacity: 1;
+        position: relative;
+        top: 0;
+    }
+}
+
+@keyframes fadeup-scrolltop {
+    0% {
+        opacity: 0;
+        bottom: 20px;
+    }
+    100% {
+        opacity: 0.8;
+        bottom: 80px;
+    }
+}
+
+@keyframes fadeup-scrolltop-mobile {
+    0% {
+        opacity: 0;
+        bottom: 20px;
+    }
+    100% {
+        opacity: 0.8;
+        bottom: 40px;
+    }
+}
+
+/* Syntax highlighting */
+
+pre {
+    @apply rounded-md;
+}
+
+div.code-toolbar {
+    @apply w-full;
+}
+
+div.code-toolbar > .toolbar {
+    margin-top: -5px;
+    opacity: 1;
+}
+
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+    background: unset;
+    box-shadow: unset;
+    border-radius: unset;
+}
