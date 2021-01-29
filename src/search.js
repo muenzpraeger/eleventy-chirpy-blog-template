@@ -108,19 +108,17 @@ const searchContent = (e) => {
             }
             let hits = 0;
             for (const item of json.hits) {
-                if (item.url.startsWith("/posts/")) {
-                    const liEl = document.createElement("li");
-                    liEl.setAttribute(
-                        "class",
-                        "bg-gradient-to-r from-white via-gray-100 to-white dark:via-dark-middle dark:from-dark-outer dark:to-dark-outer mb-4 py-2 truncate"
-                    );
-                    const aEl = document.createElement("a");
-                    aEl.setAttribute("href", item.url);
-                    aEl.textContent = item.title.split("|")[0];
-                    liEl.appendChild(aEl);
-                    ulEl.appendChild(liEl);
-                    hits = hits + 1;
-                }
+                const liEl = document.createElement("li");
+                liEl.setAttribute(
+                    "class",
+                    "bg-gradient-to-r from-white via-gray-100 to-white dark:via-dark-middle dark:from-dark-outer dark:to-dark-outer mb-4 py-2 truncate"
+                );
+                const aEl = document.createElement("a");
+                aEl.setAttribute("href", item.url);
+                aEl.textContent = item.title.split("|")[0];
+                liEl.appendChild(aEl);
+                ulEl.appendChild(liEl);
+                hits = hits + 1;
             }
             searchDesktopTitleEl.textContent = `Search (${hits} hit/s)`;
             searchMobileTitleEl.textContent = `${hits} hit/s`;

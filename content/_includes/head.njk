@@ -54,6 +54,9 @@ toggleDarkLightMode(true);
 <link rel="mask-icon" href="{{ '/assets/favicons/safari-pinned-tab.svg' | addHash }}" color="#5bbad5">
 <link rel="shortcut icon" href="{{ '/assets/favicons/favicon.ico' | addHash }}">
 <link rel="canonical" href="{{ page.url | absoluteUrl }}" />
+{% for name, item in meta %}
+<meta name="{{ name }}" content="{{ item.value }}">
+{% endfor %}
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="{{ '/assets/favicons/browserconfig.xml' | addHash }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
