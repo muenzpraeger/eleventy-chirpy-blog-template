@@ -26,7 +26,7 @@
         "autoprefixer": "^10.2.3",
         "crypto-js": "^4.0.0",
         "cssnano": "^4.1.10",
-        "date-fns": "^2.16.1",
+        "date-fns": "^2.17.0",
         "dotenv": "^8.2.0",
         "eleventy-plugin-toc": "^1.1.0",
         "html-minifier": "^4.0.0",
