@@ -3386,10 +3386,10 @@ map-cache@^0.2.0:
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
   integrity sha1-wyq9C9ZSXZsFFkW7TyasXcmKDb8=
 
-markdown-it-anchor@^7.0.0:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-7.0.1.tgz#2ea5353369e22b48d230fc849e205678821c6a86"
-  integrity sha512-FF+1jvBAX04jlDUyz2qZGiz5PKw8MwWPb2EJvjvIiVuz7DcVMfW7b3NQnAiH52DSIQfMJ0FCAsQjhUpAOTGLMg==
+markdown-it-anchor@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-7.0.2.tgz#1ac28261e0ea377b8298a1a6760e422921346a03"
+  integrity sha512-UtYFAkce16mJlixXUMXUf14ZmOWK2YHLGKUpkZUn98w3qP8nVhb7k5sCBZmVHGMq3SpYtrxQ5XOdHQHRuLR40Q==
 
 markdown-it@12.0.2:
   version "12.0.2"
