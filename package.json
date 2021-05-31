@@ -25,7 +25,7 @@
         "@rollup/plugin-replace": "^2.4.2",
         "autoprefixer": "^10.2.5",
         "crypto-js": "^4.0.0",
-        "cssnano": "^5.0.4",
+        "cssnano": "^5.0.5",
         "date-fns": "^2.21.3",
         "dotenv": "^10.0.0",
         "eleventy-plugin-toc": "^1.1.0",
