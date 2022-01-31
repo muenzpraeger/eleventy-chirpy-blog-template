@@ -474,35 +474,36 @@ div.code-toolbar > .toolbar span {
     #sidebar #sidebar-contents {
         display: none;
     }
-    
+
     #right-area #top-bar {
         display: none;
     }
-    
+
     .grid {
         display: block;
     }
-    
+
     #scroll {
         visibility: hidden;
     }
-    
+
     aside {
         display: none;
     }
-    
+
     #search-container {
         display: none;
     }
-    
+
     main .content .social {
         display: none;
     }
-    
-    main .content.border-b-1, main .block.border-b-1 {
+
+    main .content.border-b-1,
+    main .block.border-b-1 {
         border-bottom-width: 0px;
     }
-    
+
     main .content .additions {
         display: none;
     }
